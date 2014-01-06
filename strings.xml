@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<stringtables xmlns="http://sonos.com/sonosapi">
+    <stringtable rev="1" xml:lang="en-US">
+		<string stringId="ServicePromo">The world's largest community of video creators on your Sonos, finally. If you run into any problems, e-mail bertique@gmail.com.</string>
+		<string stringId="Error0Message">We're having trouble connecting to the YouTube servers at the moment. Please try again in a little bit.</string>
+		<string stringId="Error1Message">Your YouTube authorization seems to have expired. Please remove this music service (Manage→Service Settings) and add it again.</string>
+    </stringtable>
+    <stringtable rev="1" xml:lang="da-DK">
+        <string stringId="ServicePromo">The world's largest community of video creators on your Sonos, finally. If you run into any problems, e-mail bertique@gmail.com.</string>
+		<string stringId="Error0Message">We're having trouble connecting to the YouTube servers at the moment. Please try again in a little bit.</string>
+		<string stringId="Error1Message">Your YouTube authorization seems to have expired. Please remove this music service (Manage→Service Settings) and add it again.</string>
+    </stringtable>
+    <stringtable rev="1" xml:lang="de-DE">
+        <string stringId="ServicePromo">The world's largest community of video creators on your Sonos, finally. If you run into any problems, e-mail bertique@gmail.com.</string>
+		<string stringId="Error0Message">We're having trouble connecting to the YouTube servers at the moment. Please try again in a little bit.</string>
+		<string stringId="Error1Message">Your YouTube authorization seems to have expired. Please remove this music service (Manage→Service Settings) and add it again.</string>
+    </stringtable>
+    <stringtable rev="1" xml:lang="es-ES">
+        <string stringId="ServicePromo">The world's largest community of video creators on your Sonos, finally. If you run into any problems, e-mail bertique@gmail.com.</string>
+		<string stringId="Error0Message">We're having trouble connecting to the YouTube servers at the moment. Please try again in a little bit.</string>
+		<string stringId="Error1Message">Your YouTube authorization seems to have expired. Please remove this music service (Manage→Service Settings) and add it again.</string>
+    </stringtable>
+    <stringtable rev="1" xml:lang="fr-FR">
+        <string stringId="ServicePromo">The world's largest community of video creators on your Sonos, finally. If you run into any problems, e-mail bertique@gmail.com.</string>
+		<string stringId="Error0Message">We're having trouble connecting to the YouTube servers at the moment. Please try again in a little bit.</string>
+		<string stringId="Error1Message">Your YouTube authorization seems to have expired. Please remove this music service (Manage→Service Settings) and add it again.</string>
+    </stringtable>
+    <stringtable rev="1" xml:lang="it-IT">
+        <string stringId="ServicePromo">The world's largest community of video creators on your Sonos, finally. If you run into any problems, e-mail bertique@gmail.com.</string>
+		<string stringId="Error0Message">We're having trouble connecting to the YouTube servers at the moment. Please try again in a little bit.</string>
+		<string stringId="Error1Message">Your YouTube authorization seems to have expired. Please remove this music service (Manage→Service Settings) and add it again.</string>
+    </stringtable>
+    <stringtable rev="1" xml:lang="ja-JP">
+        <string stringId="ServicePromo">The world's largest community of video creators on your Sonos, finally. If you run into any problems, e-mail bertique@gmail.com.</string>
+		<string stringId="Error0Message">We're having trouble connecting to the YouTube servers at the moment. Please try again in a little bit.</string>
+		<string stringId="Error1Message">Your YouTube authorization seems to have expired. Please remove this music service (Manage→Service Settings) and add it again.</string>
+    </stringtable>
+    <stringtable rev="1" xml:lang="nb-NO">
+        <string stringId="ServicePromo">The world's largest community of video creators on your Sonos, finally. If you run into any problems, e-mail bertique@gmail.com.</string>
+		<string stringId="Error1Message">Your YouTube authorization seems to have expired. Please remove this music service (Manage→Service Settings) and add it again.</string>
+		<string stringId="Error0Message">We're having trouble connecting to the YouTube servers at the moment. Please try again in a little bit.</string>
+    </stringtable>
+    <stringtable rev="1" xml:lang="nl-NL">
+        <string stringId="ServicePromo">The world's largest community of video creators on your Sonos, finally. If you run into any problems, e-mail bertique@gmail.com.</string>
+		<string stringId="Error0Message">We're having trouble connecting to the YouTube servers at the moment. Please try again in a little bit.</string>
+		<string stringId="Error1Message">Your YouTube authorization seems to have expired. Please remove this music service (Manage→Service Settings) and add it again.</string>
+    </stringtable>
+    <stringtable rev="1" xml:lang="sv-SE">
+        <string stringId="ServicePromo">The world's largest community of video creators on your Sonos, finally. If you run into any problems, e-mail bertique@gmail.com.</string>
+		<string stringId="Error0Message">We're having trouble connecting to the YouTube servers at the moment. Please try again in a little bit.</string>
+		<string stringId="Error1Message">Your YouTube authorization seems to have expired. Please remove this music service (Manage→Service Settings) and add it again.</string>
+    </stringtable>
+    <stringtable rev="1" xml:lang="zh-CN">
+        <string stringId="ServicePromo">The world's largest community of video creators on your Sonos, finally. If you run into any problems, e-mail bertique@gmail.com.</string>
+		<string stringId="Error0Message">We're having trouble connecting to the YouTube servers at the moment. Please try again in a little bit.</string>
+		<string stringId="Error1Message">Your YouTube authorization seems to have expired. Please remove this music service (Manage→Service Settings) and add it again.</string>
+    </stringtable>
+</stringtables>
