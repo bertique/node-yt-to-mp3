@@ -17,17 +17,40 @@
   };
 
   exports.youtube_mp3 = function(req, res) {
-    var readStream, stat, youtube_dl_url_child;
+    var end, header, partialend, partialstart, parts, range, readStream, start, stat, total, youtube_dl_url_child;
     res.setHeader('Content-Type', 'audio/x-mpeg');
-    if (req.headers.range) {
-      console.log("Found range header");
-      res.statusCode = 206;
-    }
     if (fs.existsSync(musiccache + ("" + req.params.youtube_video_id + ".mp3"))) {
-      readStream = fs.createReadStream(musiccache + ("" + req.params.youtube_video_id + ".mp3"));
       stat = fs.statSync(musiccache + ("" + req.params.youtube_video_id + ".mp3"));
-      res.setHeader('Content-Length', stat.size);
-      return readStream.pipe(res);
+      if (req.headers.range) {
+        console.log("Found range header : " + req.headers.range);
+        range = req.headers.range;
+        parts = range.replace("bytes=", "").split("-");
+        partialstart = parts[0];
+        partialend = parts[1];
+        total = stat.size;
+        start = parseInt(partialstart, 10);
+        end = partialend ? parseInt(partialend, 10) : total - 1;
+        if (start > end) {
+          throw new Error('whoops');
+        }
+        header = {};
+        header["Content-Range"] = "bytes " + start + "-" + end + "/" + total;
+        header["Accept-Ranges"] = "bytes";
+        header["Content-Length"] = (end - start) + 1;
+        header['Transfer-Encoding'] = 'chunked';
+        header["Connection"] = "close";
+        res.writeHead(206, header);
+        readStream = fs.createReadStream(musiccache + ("" + req.params.youtube_video_id + ".mp3"), {
+          flags: 'r',
+          start: start,
+          end: end
+        });
+        return readStream.pipe(res);
+      } else {
+        readStream = fs.createReadStream(musiccache + ("" + req.params.youtube_video_id + ".mp3"));
+        res.setHeader('Content-Length', stat.size);
+        return readStream.pipe(res);
+      }
     } else {
       return youtube_dl_url_child = exec("python youtube-dl.py --no-check-certificate --simulate --get-url http://www.youtube.com/watch?v=" + req.params.youtube_video_id, function(err, stdout, stderr) {
         var ffmpeg_child, writable, youtube_dl_url;

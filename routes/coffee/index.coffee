@@ -8,14 +8,35 @@ exports.index = (req, res) ->
 	  
 exports.youtube_mp3 = (req, res) ->
   res.setHeader('Content-Type','audio/x-mpeg')
-  if(req.headers.range)
-   console.log("Found range header")
-   res.statusCode = 206
   if(fs.existsSync(musiccache+"#{req.params.youtube_video_id}.mp3"))
-   readStream = fs.createReadStream(musiccache+"#{req.params.youtube_video_id}.mp3")
    stat = fs.statSync(musiccache+"#{req.params.youtube_video_id}.mp3")
-   res.setHeader('Content-Length',stat.size)
-   readStream.pipe(res)
+   if(req.headers.range)
+    console.log("Found range header : "+req.headers.range)
+
+    range = req.headers.range
+    parts = range.replace("bytes=", "").split("-")
+    partialstart = parts[0]
+    partialend = parts[1]
+    total = stat.size
+    start = parseInt(partialstart, 10)
+    end = if partialend then parseInt(partialend, 10) else total-1
+ 
+    if (start > end) then throw new Error('whoops')
+    header = {};
+    header["Content-Range"] = "bytes " + start + "-" + end + "/" + (total)
+    header["Accept-Ranges"] = "bytes"
+    header["Content-Length"]= (end-start)+1
+    header['Transfer-Encoding'] = 'chunked'
+    header["Connection"] = "close"
+    res.writeHead(206, header)
+
+    readStream = fs.createReadStream(musiccache+"#{req.params.youtube_video_id}.mp3", { flags: 'r', start: start, end: end})
+    readStream.pipe(res)
+  
+   else
+    readStream = fs.createReadStream(musiccache+"#{req.params.youtube_video_id}.mp3")  
+    res.setHeader('Content-Length',stat.size)
+    readStream.pipe(res)
   else
    # Spawn a child process to obtain the URL to the FLV
    youtube_dl_url_child = exec "python youtube-dl.py --no-check-certificate --simulate --get-url http://www.youtube.com/watch?v=#{req.params.youtube_video_id}", (err, stdout, stderr) ->
