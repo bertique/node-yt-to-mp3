@@ -52,14 +52,19 @@
         return readStream.pipe(res);
       }
     } else {
+      console.log("Yimbo I'm starting");
       return youtube_dl_url_child = exec("python youtube-dl.py --no-check-certificate --simulate --get-url http://www.youtube.com/watch?v=" + req.params.youtube_video_id, function(err, stdout, stderr) {
         var ffmpeg_child, writable, youtube_dl_url;
+        console.log("Yimbo I'm doing 1");
         youtube_dl_url = stdout.toString();
         youtube_dl_url = youtube_dl_url.substring(0, youtube_dl_url.length - 1);
+        console.log("Yimbo I'm doing 2 " + youtube_dl_url);
         ffmpeg_child = spawn("ffmpeg", ['-i', 'pipe:0', '-acodec', 'libmp3lame', '-f', 'mp3', '-']);
         ffmpeg_child.stdout.pipe(res);
+        console.log("Yimbo I'm doing 3");
         writable = fs.createWriteStream(musiccache + ("" + req.params.youtube_video_id + ".mp3"));
         ffmpeg_child.stdout.pipe(writable);
+        console.log("Yimbo I'm doing 4");
         return request({
           url: youtube_dl_url,
           headers: {
