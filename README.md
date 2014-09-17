@@ -1,6 +1,6 @@
 # node-yt-to-mp3
 
-**Proxy server converting YouTube videos to mp3s on the fly.**
+**Proxy server streaming YouTube to mp3 audio on the fly.**
 
 I needed a web service that would take a YouTube video id and return an mp3 stream of the video.
 
@@ -17,4 +17,5 @@ The repository contains configuration files to easily run the server out of the 
 
 ## Future work
 - Improved caching: Currently the cache is never deleted. I added a script (clearMusicCache) that can be called as a cron job to clean the directory, but that's far from ideal
+- Better error handling: This was a quick and dirty solution, so lots of places where things can go wrong.
 
