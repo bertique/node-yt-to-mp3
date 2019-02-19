@@ -6,8 +6,11 @@
     "start": "node app.js"
   },
   "dependencies": {
-    "express": "3.4.7",
-    "jade": "*",
+    "errorhandler": "^1.5.0",
+    "express": "^4.16.4",
+    "method-override": "^3.0.0",
+    "morgan": "^1.9.1",
+    "pug": "^2.0.3",
     "request": "^2.88.0"
   }
 }
